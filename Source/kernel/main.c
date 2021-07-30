@@ -1,5 +1,6 @@
 
 #include "kernel.h"
 void kernel_main() {
-    infolog("Hello World!");
+    kernel_init();
+    warnlog("Test warnlog");
 }

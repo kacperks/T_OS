@@ -5,14 +5,12 @@
 
 #include "print.h"
 
-void kernel_init();
-
-int infolog(char message);
-int errorlog(char message);
-int warnlog(char message);
-
+extern void kernel_init();
+extern void boot_code();
+extern void kernel_panic();
 
 #define TERMS 7
 #define ERR -1
 #define SUCCESS 0
 #define NULL 0
+#define BIT(x) 1<<x

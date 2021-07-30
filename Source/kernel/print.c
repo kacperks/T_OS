@@ -73,11 +73,61 @@ void print_str(char* str) {
         if (character == '\0') {
             return;
         }
-
         print_char(character);
     }
 }
 
 void print_set_color(uint8_t foreground, uint8_t background) {
     color = foreground + (background << 4);
+}
+
+void print_set_position(size_t newrow, size_t newcol) {
+    if (newrow > NUM_ROWS) { return; }
+    if (newcol > NUM_COLS) { return; }
+    col = newcol;
+    row = newrow;
+}
+
+size_t print_get_row() {
+    return row;
+}
+size_t print_get_col() {
+    return col;
+}
+
+void print_int(int input_int) {
+    print_str(convert_int_to_str(input_int));
+}
+void print_set_color(uint8_t foreground, uint8_t background) {
+    color = foreground + (background << 4);
+}
+
+int infolog(char message){
+    if (print_get_col() != 0) { print_str("\n"); }
+    print_set_color(PRINT_COLOR_WHITE, PRINT_COLOR_BLACK); 
+    print_str("[  "); print_set_color(PRINT_COLOR_GREEN, PRINT_COLOR_BLACK); print_str("OK"); print_set_color(PRINT_COLOR_WHITE, PRINT_COLOR_BLACK); print_str("  ] ");
+    print_str(message);
+    print_str("\n");
+    return SUCCESS;
+}
+int errorlog(char message){
+    if (print_get_col() != 0) { print_str("\n"); }
+    
+    print_set_color(PRINT_COLOR_WHITE, PRINT_COLOR_BLACK);
+    print_str("[");
+    print_set_color(PRINT_COLOR_RED, PRINT_COLOR_BLACK);
+    print_str("ERR");
+    print_set_color(PRINT_COLOR_WHITE, PRINT_COLOR_BLACK);
+    print_str("] ");
+    print_str(str);
+    print_str("\n");
+    return SUCCESS;
+}
+int warnlog(char message){
+    print_set_color(PRINT_COLOR_YELLOW, PRINT_COLOR_BLACK);
+    print_str("[WARN]" );
+    print_set_color(PRINT_COLOR_WHITE, PRINT_COLOR_BLACK);
+    print_str(message);
+    print_str("\n");
+    return SUCCESS;
 }

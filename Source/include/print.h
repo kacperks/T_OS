@@ -22,7 +22,11 @@ enum {
 	PRINT_COLOR_WHITE = 15,
 };
 
-void print_clear();
-void print_char(char character);
-void print_str(char* string);
-void print_set_color(uint8_t foreground, uint8_t background);
+extern void print_clear();
+extern void print_char(char character);
+extern void print_str(char* string);
+extern void print_set_color(uint8_t foreground, uint8_t background);
+
+extern int infolog(char message);
+extern int errorlog(char message);
+extern int warnlog(char message);
