@@ -6,16 +6,6 @@
                 "C:/Program Files/MinGW/include",
                 "Source/include"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "windowsSdkVersion": "10.0.18362.0",
-            "compilerPath": "C:/Program Files/MinGW/bin/g++.exe",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-x86"
         }
     ],
     "version": 4
